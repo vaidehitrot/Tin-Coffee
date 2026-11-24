@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Caramelly Coffee Roasters</title>
+  <meta name="description" content="Specialty coffee beans and Nespresso-compatible pods, roasted on a Probat in Gurgaon. One coffee for every roast level, from light to dark.">
+  <meta name="theme-color" content="#fee5a8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='16' rx='11' ry='14' fill='%23533220' transform='rotate(-30 16 16)'/%3E%3Cpath d='M10 25c5-4 7-14 12-18' stroke='%23f7f4ee' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/photos/hero-banner.webp" media="(min-width: 768px)">
+  <link rel="preload" as="image" href="assets/photos/hero-banner-mobile.webp" media="(max-width: 767px)">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top" aria-label="Caramelly, back to the top">
+    <img src="assets/logo-white.png" alt="Caramelly" width="515" height="124">
+  </a>
+  <nav class="nav__links" id="navLinks" aria-label="Sections">
+    <a href="#choose">Beans</a>
+    <a href="#pods">Pods</a>
+    <a href="#grind">Grind guide</a>
+    <a href="#roastery">Roastery</a>
+  </nav>
+  <div class="nav__end">
+    <a class="btn btn--ink btn--sm" href="#choose">Shop beans</a>
+    <button class="nav__menu" id="navMenu" aria-expanded="false" aria-controls="navLinks">Menu</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1 · Hero, then a circle opens from the Jasmine Kiss tin onto the wheel -->
+  <section class="stage" id="stage" aria-label="Introduction and the coffee wheel">
+    <span class="stage__anchor" id="choose" aria-hidden="true"></span>
+    <div class="stage__pin">
+
+      <div class="hero" id="hero">
+        <div class="hero__media" id="heroMedia">
+          <picture>
+            <source media="(max-width: 767px)" srcset="assets/photos/hero-banner-mobile.webp" width="615" height="1200">
+            <img class="hero__img" src="assets/photos/hero-banner.webp" width="2000" height="1019" fetchpriority="high" decoding="async"
+                 alt="Jasmine Kiss, Pink Bloom and House Blend tins on a butter-yellow table with scattered beans and a latte">
+          </picture>
+        </div>
+        <div class="hero__copy" id="heroCopy">
+          <h1 class="display">Specialty beans and pods, roasted in Gurgaon</h1>
+          <p class="hero__sub">One coffee for every roast level, from light to dark, in tins labelled with origin, process, variety and roast. Plus capsules for Nespresso® Original machines.</p>
+          <div class="hero__actions">
+            <a class="btn btn--ink" href="#choose">Shop beans</a>
+            <a class="link" href="#grind">Find your grind</a>
+          </div>
+        </div>
+        <p class="hero__cue" id="heroCue"><span class="cue-line" aria-hidden="true"></span>Scroll to open the tin</p>
+      </div>
+
+      <div class="wheel" id="wheel" aria-labelledby="wheelTitle">
+        <div class="wheel__scene" id="wheelScene">
+          <div class="wheel__head">
+            <h2 class="wheel__title" id="wheelTitle">Turn the wheel, pick a tin</h2>
+            <p>Five roasts, light to dark. Each one is sold whole bean, and ground to order on caramelly.in.</p>
+          </div>
+          <div class="wheel__dome" id="dome">
+            <svg class="wheel__text" id="wheelText" viewBox="-500 -500 1000 1000" aria-hidden="true">
+              <defs><path id="wheelPath" d="M -452 0 a 452 452 0 1 1 904 0 a 452 452 0 1 1 -904 0"></path></defs>
+              <text><textPath href="#wheelPath">Whole bean · Espresso · Moka pot · Aeropress · Pour over · French press · Cold brew · Whole bean · Espresso · Moka pot · Aeropress · Pour over · French press · Cold brew ·</textPath></text>
+            </svg>
+          </div>
+          <div class="wheel__ring" id="ring"></div>
+          <div class="wheel__info" id="wheelInfo" aria-live="polite">
+            <p class="wheel__kind" data-w="kind"></p>
+            <p class="wheel__name" data-w="name"></p>
+            <div class="wheel__roast" data-w="roast"></div>
+            <p class="wheel__notes" data-w="notes"></p>
+            <a class="btn btn--ink btn--sm" href="#tin">Read this tin</a>
+          </div>
+          <p class="wheel__hint">Scroll to turn the wheel, or tap a tin</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 2 · One tin, read in full -->
+  <section class="tin" id="tin" aria-labelledby="tinName">
+    <div class="tin__head">
+      <p class="tin__meta tin__meta--l"><span data-f="kind"></span><span data-f="family" class="muted"></span></p>
+      <h2 class="tin__name" id="tinName" data-f="name"></h2>
+      <p class="tin__meta tin__meta--r"><span data-f="place"></span><span data-f="elev" class="muted"></span></p>
+      <div class="tin__drop" id="tinDrop">
+        <img class="tin__img" data-f="tin" alt="" width="871" height="768" decoding="async">
+        <span class="tin__shadow" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="tin__story">
+      <p class="tin__taste" data-f="taste"></p>
+      <span class="diamond" aria-hidden="true"></span>
+      <p class="tin__notes"><span class="strong">Tasting notes</span> <span data-f="notes"></span></p>
+    </div>
+
+    <div class="tin__body">
+      <figure class="tin__photo">
+        <img data-f="photo" alt="" width="1200" height="1200" loading="lazy" decoding="async">
+        <figcaption data-f="caption"></figcaption>
+      </figure>
+
+      <div class="tin__panel">
+        <div class="specs" data-f="specs"></div>
+
+        <form class="buy" id="buy" onsubmit="return false">
+          <fieldset class="buy__set">
+            <legend>Size</legend>
+            <div class="chips" data-f="sizes"></div>
+          </fieldset>
+          <fieldset class="buy__set">
+            <legend>Grind</legend>
+            <div class="chips" data-f="grinds"></div>
+          </fieldset>
+          <div class="buy__row">
+            <div class="buy__price">
+              <span class="figure" data-f="price"></span>
+              <span class="muted" data-f="member"></span>
+            </div>
+            <a class="btn btn--ink" data-f="url" href="#" target="_blank" rel="noopener">Buy on Amazon</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · The five tins side by side -->
+  <section class="lineup" id="coffees" aria-labelledby="lineupTitle">
+    <div class="lineup__head">
+      <h2 class="section-title" id="lineupTitle">Five roasts, light to dark</h2>
+      <p>Lighter roasts keep more of the farm: florals, fruit, bright acidity. Darker ones bring chocolate, nuts and the body to stand up to milk. Tap a tin to read it in full.</p>
+    </div>
+    <div class="lineup__grid" id="lineupGrid"></div>
+    <span class="cursor-tag" id="cursorTag" aria-hidden="true">Read this tin</span>
+  </section>
+
+  <!-- 4 · Pods -->
+  <section class="pods" id="pods" aria-labelledby="podsTitle">
+    <div class="pods__intro">
+      <div class="pods__copy">
+        <h2 class="section-title" id="podsTitle">Pods, for mornings without a scale</h2>
+        <p>The same Chikkamagaluru beans, ground for capsule brewing, then nitrogen-flushed and sealed so oxygen stays out. Ten capsules to a box.</p>
+        <p class="muted">Fits Caramelly machines and Nespresso® OriginalLine machines: Essenza Mini, Pixie, Inissia, CitiZ, Creatista, Lattissima and Espresso Pop. Not for Vertuo.</p>
+        <div class="dial">
+          <label for="intensity" class="dial__label">How strong do you take it? <span class="figure" id="intensityOut">10</span><span class="muted"> / 13</span></label>
+          <input type="range" id="intensity" min="6" max="12" step="1" value="10">
+          <p class="muted" id="intensityHint"></p>
+        </div>
+      </div>
+      <figure class="pods__photo">
+        <img src="assets/photos/pod-ristretto.webp" alt="A box of Ristretto Intenso capsules with two black capsules and scattered beans in soft afternoon light" width="1200" height="1200" loading="lazy" decoding="async">
+      </figure>
+    </div>
+    <div class="pods__shelf" id="podShelf"></div>
+  </section>
+
+  <!-- 5 · Grind guide -->
+  <section class="grind" id="grind" aria-labelledby="grindTitle">
+    <div class="grind__intro">
+      <h2 class="section-title" id="grindTitle">Whole bean, or ground for your brewer</h2>
+      <p>Caramelly grinds to order for seven brew methods. Match the grind to the brewer and the rest of the recipe gets easy. These are starting points; taste and adjust one notch at a time.</p>
+    </div>
+    <div class="tabs tabs--scroll" role="tablist" aria-label="Grind size" id="grindTabs"></div>
+    <div class="grind__grid">
+      <div class="grind__dish"><canvas id="grindCanvas" width="720" height="720" aria-label="Coffee grounds at the selected size" role="img"></canvas></div>
+      <div class="grind__info" id="grindInfo" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- 6 · Roastery -->
+  <section class="roastery" id="roastery" data-theme="dark" aria-labelledby="roasteryTitle">
+    <figure class="roastery__photo">
+      <img src="assets/photos/probat.webp" alt="Close view of the Probat drum roaster’s cooling tray and agitator arm" width="1000" height="1000" loading="lazy" decoding="async">
+    </figure>
+    <div class="roastery__copy">
+      <h2 class="section-title" id="roasteryTitle">Roasted on a Probat, one profile at a time</h2>
+      <p>Every batch goes through a Probat drum roaster fitted with variable frequency drives on drum speed and exhaust. That control lets a light microlot and a dark espresso roast each hit their own curve, batch after batch.</p>
+      <table class="vs">
+        <caption class="muted">What changes when you buy from a roaster</caption>
+        <thead><tr><th scope="col"></th><th scope="col">Supermarket bag</th><th scope="col">Caramelly tin</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Beans</th><td>Commodity grade</td><td>Specialty grade</td></tr>
+          <tr><th scope="row">Roaster</th><td>Rarely named</td><td>Probat drum roaster</td></tr>
+          <tr><th scope="row">Roast control</th><td>Not stated</td><td>VFDs on drum speed and exhaust</td></tr>
+          <tr><th scope="row">On the label</th><td>Origin, sometimes</td><td>Country, region, altitude, process, variety, roast level</td></tr>
+          <tr><th scope="row">Capsules</th><td>Not stated</td><td>Nitrogen-flushed and sealed</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 7 · Newsletter and footer -->
+  <section class="stay" id="stay" aria-labelledby="stayTitle">
+    <h2 class="display stay__title" id="stayTitle">Stay on the roast list</h2>
+    <p>A short note when a new microlot lands or a seasonal pod comes back.</p>
+    <form class="stay__form" onsubmit="this.classList.add('is-done'); return false">
+      <label class="visually-hidden" for="email">Email address</label>
+      <input id="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+      <button class="link" type="submit">Subscribe</button>
+      <p class="stay__done">Thanks, you are on the list</p>
+    </form>
+  </section>
+
+  <footer class="foot">
+    <div class="foot__cols">
+      <div>
+        <img class="foot__logo" src="assets/logo-white.png" alt="Caramelly" width="515" height="124" loading="lazy">
+        <p class="muted">Specialty coffee roasters, Gurgaon</p>
+      </div>
+      <nav aria-label="Shop">
+        <a href="https://www.amazon.in/s?k=caramelly" target="_blank" rel="noopener">Caramelly on Amazon</a>
+        <a href="https://caramelly.in" target="_blank" rel="noopener">caramelly.in</a>
+        <a href="https://www.instagram.com/caramelly.in/" target="_blank" rel="noopener">Instagram, @caramelly.in</a>
+      </nav>
+      <p class="muted foot__note">Concept site. Product details and photography from caramelly.in; Amazon prices as listed on amazon.in, November 2026.</p>
+    </div>
+  </footer>
+
+  <!-- The loop: a copy of the opening frame, so the page runs back into itself -->
+  <section class="loop" id="loop" aria-hidden="true">
+    <div class="hero hero--loop">
+      <div class="hero__media">
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/photos/hero-banner-mobile.webp">
+          <img class="hero__img" src="assets/photos/hero-banner.webp" alt="" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="hero__copy">
+        <p class="display h1-like">Specialty beans and pods, roasted in Gurgaon</p>
+        <p class="hero__sub">One coffee for every roast level, from light to dark, in tins labelled with origin, process, variety and roast. Plus capsules for Nespresso® Original machines.</p>
+        <div class="hero__actions">
+          <span class="btn btn--ink">Shop beans</span>
+          <span class="link">Find your grind</span>
+        </div>
+      </div>
+      <p class="hero__cue"><span class="cue-line"></span>Scroll to open the tin</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
