@@ -171,6 +171,7 @@ window.COFFEES = [
   }
 ];
 
+/* Pods are hidden on the site for now; the data stays for when they come back. */
 const POD = 'https://caramelly.in/products/';
 window.PODS = [
   { id: 'ristretto', name: 'Ristretto Intenso', intensity: 12, roast: 'Dark roast', notes: ['Bold', 'Syrupy', 'Dark roasted'],
@@ -194,18 +195,53 @@ window.PODS = [
 ];
 
 window.GRINDS = [
-  { id: 'whole', name: 'Whole beans', size: 'Unground', micron: 0, ratio: 'Grind per brew', time: 'Just before brewing',
-    text: 'Ground coffee starts losing aroma within minutes. Buy whole beans if you own a grinder and grind only what you need. Keep the tin closed, away from heat and light.' },
-  { id: 'espresso', name: 'Espresso', size: 'Fine, a touch finer than table salt', micron: 250, ratio: '1 : 2', time: '25–30 s at about 9 bar',
-    text: 'Fine enough to resist the pressure of the machine. About 18 g in the basket, about 36 g out. Faster than that, grind finer; slower, coarser.' },
-  { id: 'moka', name: 'Moka pot', size: 'Fine-medium', micron: 400, ratio: 'Fill the basket level', time: '4–5 min on low heat',
-    text: 'A little coarser than espresso. Fill the basket without tamping, use hot water in the base and take it off the heat as soon as it starts to sputter.' },
-  { id: 'aeropress', name: 'Aeropress', size: 'Medium-fine, like table salt', micron: 500, ratio: '1 : 15', time: '2 min steep, 30 s press',
-    text: 'Forgiving and quick. Finer grinds suit shorter steeps; if pressing feels hard, go a notch coarser.' },
-  { id: 'pourover', name: 'Pour over', size: 'Medium, like sand', micron: 700, ratio: '1 : 16', time: '2:30–3:30 total',
-    text: 'Bloom with twice the coffee’s weight in water at 92–96 °C, wait 30 s, then pour in slow circles. Sour cup, go finer; bitter, go coarser.' },
-  { id: 'frenchpress', name: 'French press', size: 'Coarse, like sea salt', micron: 1000, ratio: '1 : 15', time: '4 min steep',
-    text: 'Coarse grounds keep silt out of the cup and stop the brew turning bitter. Stir once, steep, then press slowly and pour it all out.' },
-  { id: 'coldbrew', name: 'Cold brew', size: 'Extra coarse, like cracked pepper', micron: 1300, ratio: '1 : 8 concentrate', time: '12–18 h in the fridge',
-    text: 'Steep in cold water, strain, and dilute about 1 : 1 with water or milk. Fruity light roasts make a surprisingly juicy cold brew.' }
+  { id: 'whole', name: 'Whole beans', short: 'Whole', size: 'Unground, for your own grinder',
+    facts: [
+      { label: 'Grind', value: 'Per brew', note: 'just before you brew' },
+      { label: 'Store', value: 'Closed tin', note: 'somewhere cool and dark' },
+      { label: 'Best within', value: '4–6 weeks', note: 'of the roast date' }
+    ],
+    text: 'Ground coffee starts losing aroma within minutes. If you own a grinder, buy whole beans and grind only what the next cup needs.' },
+  { id: 'espresso', name: 'Espresso', short: 'Espresso', size: 'Fine, a touch finer than table salt', grain: 1,
+    facts: [
+      { label: 'Coffee', value: '18 g', note: 'for about 36 g in the cup' },
+      { label: 'Time', value: '25–30 s', note: 'at about 9 bar' },
+      { label: 'Water', value: '92–96 °C', note: 'from the machine' }
+    ],
+    text: 'Fine enough to hold back the pressure of the machine. If the shot runs faster than 25 seconds, go a notch finer; slower than 30, a notch coarser.' },
+  { id: 'moka', name: 'Moka pot', short: 'Moka pot', size: 'Fine-medium, a little coarser than espresso', grain: 2,
+    facts: [
+      { label: 'Coffee', value: 'Fill level', note: 'no tamping' },
+      { label: 'Time', value: '4–5 min', note: 'on low heat' },
+      { label: 'Water', value: 'Hot', note: 'up to the valve' }
+    ],
+    text: 'Start with hot water in the base so the coffee doesn’t stew, and take the pot off the heat as soon as it begins to sputter.' },
+  { id: 'aeropress', name: 'Aeropress', short: 'Aeropress', size: 'Medium-fine, like table salt', grain: 3,
+    facts: [
+      { label: 'Coffee', value: '15 g', note: 'to 225 g water' },
+      { label: 'Time', value: '2 min', note: 'then a 30 s press' },
+      { label: 'Water', value: '90–95 °C', note: 'just off the boil' }
+    ],
+    text: 'The most forgiving brewer on the shelf. If pressing feels like hard work, the grind is too fine; go a notch coarser.' },
+  { id: 'pourover', name: 'Pour over', short: 'Pour over', size: 'Medium, like coarse sand', grain: 4,
+    facts: [
+      { label: 'Coffee', value: '15 g', note: 'to 240 g water' },
+      { label: 'Time', value: '2:30–3:30', note: 'from bloom to last drip' },
+      { label: 'Water', value: '92–96 °C', note: 'poured in slow circles' }
+    ],
+    text: 'Bloom with about 30 g of water, wait 30 seconds, then pour slowly. A sour cup wants a finer grind; a bitter one, coarser.' },
+  { id: 'frenchpress', name: 'French press', short: 'French press', size: 'Coarse, like sea salt', grain: 5,
+    facts: [
+      { label: 'Coffee', value: '30 g', note: 'to 450 g water' },
+      { label: 'Time', value: '4 min', note: 'then press slowly' },
+      { label: 'Water', value: '93–96 °C', note: 'just off the boil' }
+    ],
+    text: 'Coarse grounds keep silt out of the cup and stop the brew turning bitter. Stir once, steep, press, and pour it all out.' },
+  { id: 'coldbrew', name: 'Cold brew', short: 'Cold brew', size: 'Extra coarse, like cracked pepper', grain: 6,
+    facts: [
+      { label: 'Coffee', value: '100 g', note: 'to 800 g water' },
+      { label: 'Time', value: '12–18 h', note: 'in the fridge' },
+      { label: 'Water', value: 'Cold', note: 'filtered' }
+    ],
+    text: 'Makes a concentrate. Strain it, then top up about one to one with water or milk. Fruity light roasts make a surprisingly juicy cold brew.' }
 ];

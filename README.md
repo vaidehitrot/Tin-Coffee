@@ -3,9 +3,9 @@
 A continuous scroll website for Caramelly's specialty coffee beans and pods.
 
 - Hero photo opens into a turning wheel of five tins, one per roast level, from light to dark
-- Each tin opens into its full details: origin, elevation, process, variety, cup profile, roast level and brewing
+- The wheel's centre tin glides down into its full details (origin, elevation, process, variety, cup profile, roast level, brewing), and the page snaps between the two
 - Buy buttons go to each coffee's Amazon listing for the chosen size (200 g or 500 g)
-- Pods with an intensity dial, a grind guide drawn on canvas, and the Probat roastery
+- A grind guide with a recipe card per brewer, and Caramelly's film of the Probat roastery
 - The page loops: scrolling past the footer runs back into the hero
 
 ## Run it
